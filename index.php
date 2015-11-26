@@ -3,7 +3,7 @@ session_start();
 require("Modele/connexion.php");    // Connexion à la BDD
 require("Vue/commun.php");          // Fonctions communes à toutes les vues (formulaires etc...)
 
-if(!isset($_SESSION["userID"])){ // L'utilisateur n'est pas connecté
+if(!isset($_SESSION["userID"])) { // L'utilisateur n'est pas connecté
     include("Controleur/connexion.php"); // On utilise un controleur secondaire pour éviter d'avoir un fichier index.php trop gros
 }
 else { // L'utilisateur est connecté
@@ -39,6 +39,11 @@ else { // L'utilisateur est connecté
                 include("Vue/accueil.php");
                 break;
         }
+    }
+    else { // affichage par défaut
+            include("Vue/accueil.php");
+    }
+}
 
 
 /*      // Structure de contrôle identique au switch, avec des if / else if / else :
@@ -67,9 +72,4 @@ else { // L'utilisateur est connecté
             session_destroy();
             // Appel de l'accueil non connecté
             include("Vue/non_connecte.php");
-        }
-    } else { // affichage par défaut
-            include("Vue/accueil.php");
-    } */
-
-}
+        } */
